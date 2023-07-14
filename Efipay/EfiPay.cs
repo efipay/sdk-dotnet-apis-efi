@@ -58,6 +58,9 @@ namespace Efipay
                 if (Certificate == null)
                 {
                     throw new EfiException(1, "certificate_not_found", "Para utilizar os endpoints do pix é necessário informar o caminho do certificado .p12");
+                } else if (!File.Exists(Certificate))
+                {
+                    throw new EfiException(1, "certificate_not_found", "Caminho do certificado inválido.");
                 }
             }
             else if ((JObject)constants["APIS"]["OPEN_FINANCE"]["ENDPOINTS"][binder.Name] != null)
@@ -68,6 +71,9 @@ namespace Efipay
                 if (Certificate == null)
                 {
                     throw new EfiException(1, "certificate_not_found", "Para utilizar os endpoints do Open Finance é necessário informar o caminho do certificado .p12");
+                } else if (!File.Exists(Certificate))
+                {
+                    throw new EfiException(1, "certificate_not_found", "Caminho do certificado inválido.");
                 }
             }
             else if ((JObject)constants["APIS"]["PAYMENTS"]["ENDPOINTS"][binder.Name] != null)
@@ -78,6 +84,9 @@ namespace Efipay
                 if (Certificate == null)
                 {
                     throw new EfiException(1, "certificate_not_found", "Para utilizar os endpoints da API Pagamentos é necessário informar o caminho do certificado .p12");
+                } else if (!File.Exists(Certificate))
+                {
+                    throw new EfiException(1, "certificate_not_found", "Caminho do certificado inválido.");
                 }
             }
             else if ((JObject)constants["APIS"]["OPENING_ACCOUNTS"]["ENDPOINTS"][binder.Name] != null)
@@ -88,6 +97,9 @@ namespace Efipay
                 if (Certificate == null)
                 {
                     throw new EfiException(1, "certificate_not_found", "Para utilizar os endpoints da API Abertura de Contas é necessário informar o caminho do certificado .p12");
+                } else if (!File.Exists(Certificate))
+                {
+                    throw new EfiException(1, "certificate_not_found", "Caminho do certificado inválido.");
                 }
             }
             else if ((JObject)constants["APIS"]["CHARGES"]["ENDPOINTS"][binder.Name] != null)
@@ -119,10 +131,9 @@ namespace Efipay
             if (args.Length > 2 && args[2] != null)
                 headersComplement = (string)args[2];
 
-            Authenticate();
-
             try
             {
+                Authenticate();
                 result = RequestEndpoint(route, method, query, body, headersComplement);
                 return true;
             }
@@ -130,9 +141,7 @@ namespace Efipay
             {
                 if (e.Code == 401)
                 {
-                    Authenticate();
-                    result = RequestEndpoint(route, method, query, body, headersComplement);
-                    return true;
+                    throw new EfiException(401, "Unauthorized", "Could not authenticate. Please make sure you are using correct credentials and if you are using then in the correct environment.");
                 }
                 else
                 {
@@ -151,31 +160,32 @@ namespace Efipay
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             RestResponse restResponse;
 
-            if (Certificate != null)
-            {
-                var x509Certificate2 = new X509Certificate2(certificate, "", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable | X509KeyStorageFlags.PersistKeySet);
-
-                var client = new RestClient(new RestClientOptions(baseURL + "/oauth/token")
-                {
-                    ClientCertificates = new X509CertificateCollection() { x509Certificate2 }
-                });
-                request.AddHeader("Content-Type", "application/json");
-                request.AddParameter("application/json", "{\r\n    \"grant_type\": \"client_credentials\"\r\n}", ParameterType.RequestBody);
-                restResponse = client.Execute(request);
-            }
-            else
-            {
-                var client = new RestClient(baseURL + "/authorize");
-                request.AddJsonBody("{\r\n    \"grant_type\": \"client_credentials\"\r\n}");
-                restResponse = client.Execute(request);
-            }
             try
             {
-                string response = restResponse.Content;
-                JObject json = JObject.Parse(response);
-                Token = json["access_token"].ToString();
-            }
-            catch (EfiException)
+
+                if (Certificate != null)
+                {
+                    var x509Certificate2 = new X509Certificate2(certificate, "", X509KeyStorageFlags.MachineKeySet | X509KeyStorageFlags.Exportable | X509KeyStorageFlags.PersistKeySet);
+
+                    var client = new RestClient(new RestClientOptions(baseURL + "/oauth/token")
+                    {
+                        ClientCertificates = new X509CertificateCollection() { x509Certificate2 }
+                    });
+                    request.AddHeader("Content-Type", "application/json");
+                    request.AddParameter("application/json", "{\r\n    \"grant_type\": \"client_credentials\"\r\n}", ParameterType.RequestBody);
+                    restResponse = client.Execute(request);
+                }
+                else
+                {
+                    var client = new RestClient(baseURL + "/authorize");
+                    request.AddJsonBody("{\r\n    \"grant_type\": \"client_credentials\"\r\n}");
+                    restResponse = client.Execute(request);
+                }
+                    string response = restResponse.Content;
+                    JObject json = JObject.Parse(response);
+                    Token = json["access_token"].ToString();
+                }
+            catch (Exception)
             {
                 throw new EfiException(401, "authorization_error",
                        "Could not authenticate. Please make sure you are using correct credentials and if you are using then in the correct environment.");
