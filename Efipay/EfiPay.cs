@@ -14,7 +14,7 @@ namespace Efipay
 {
     public class EfiPay : DynamicObject
     {
-        private const string version = "1.0.0";
+        private const string version = "1.0.2";
         private static string clientId;
         private static string clientSecret;
         private static JObject constants;
@@ -205,7 +205,7 @@ namespace Efipay
             else if (method == "PATCH") request.Method = Method.Patch;
 
             request.AddHeader("Authorization", string.Format("Bearer {0}", Token));
-            request.AddHeader("api-sdk", string.Format("dotnet-core-{0}", version));
+            request.AddHeader("api-sdk", string.Format("efi-dotnet-core-{0}", version));
 
             if (headersComplement != null)
             {
