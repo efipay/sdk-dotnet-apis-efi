@@ -447,6 +447,11 @@ namespace Efipay
                         {
                             route = "/v2/gn/split/config/:id",
                             method = "GET"
+                        },
+                        PixSendDetailId = new
+                        {
+                            route = "/v2/gn/pix/enviados/id-envio/:idEnvio",
+                            method = "GET"
                         }
                     }
                 },
@@ -556,10 +561,10 @@ namespace Efipay
                             route = "/cadastro/conta-simplificada/:idContaSimplificada/credenciais",
                             method = "GET"
                         },
-                        GetAccountCertificate = new
+                        CreateAccountCertificate = new
                         {
                             route = "/cadastro/conta-simplificada/:idContaSimplificada/certificado",
-                            method = "GET"
+                            method = "POST"
                         },
                         AccountConfigWebhook = new
                         {
