@@ -42,6 +42,11 @@ namespace Efipay
                             route = "/charge/:id/pay",
                             method = "POST"
                         },
+                        DefineLinkPayMethod = new
+                        {
+                            route = "/charge/:id/link",
+                            method = "POST"
+                        },
                         CancelCharge = new
                         {
                             route = "/charge/:id/cancel",
@@ -154,7 +159,7 @@ namespace Efipay
                         },
                         CreateOneStepLink = new
                         {
-                            route = "/charge/:id/link",
+                            route = "/charge/one-step/link",
                             method = "POST"
                         },
                         UpdateChargeLink = new
