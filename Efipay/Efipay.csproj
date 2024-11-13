@@ -1,39 +1,46 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<Version>1.0.2</Version>
-	<PackageId>EfiPay</PackageId>
-    <Authors>Consultoria Técnica - Efí</Authors>
-    <Company>Efí</Company>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Title>EfiPay</Title>
+    <Version>2.0.0</Version>
+    <Authors>Efí Bank</Authors>
+    <Company>Efí Bank</Company>
     <Product>EfiPay</Product>
-    <Description>SDK em .NET integrada às APIs Efí Pay preparada para emissão de cobranças Pix com QR Code e Pix Copia e Cola, boletos, carnês, cartão de crédito, assinatura, link de pagamento, marketplace, iniciação de pagamento Pix via Open Finance, pagamento de boletos, dentre outras funcionalidades.</Description>
+    <Description>SDK em .NET integrada às APIs Efí Bank preparada para emissão de cobranças Pix com QR Code e Pix Copia e Cola, boletos, carnês, cartão de crédito, assinatura, link de pagamento, marketplace, iniciação de pagamento Pix via Open Finance, pagamento de boletos, dentre outras funcionalidades.</Description>
     <PackageProjectUrl>https://github.com/efipay/sdk-dotnet-apis-efi</PackageProjectUrl>
-    <PackageIcon>efi-logo.png</PackageIcon>
     <RepositoryUrl>https://github.com/efipay/sdk-dotnet-apis-efi</RepositoryUrl>
-    <RepositoryType>Github</RepositoryType>
+    <RepositoryType>git</RepositoryType>
     <PackageTags>pix, boleto, cartão de cédito, carnês, open finance, assinaturas, marketplace, split de pagamentos, link de pagamento</PackageTags>
-    <Copyright></Copyright>
-    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
+    <PackageIcon>efibank.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageId>EfiPay</PackageId>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.IO" Version="4.3.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-    <PackageReference Include="RestSharp" Version="108.0.3" />
+    <None Include="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+	<None Include="efibank.png">
+		<Pack>True</Pack>
+		<PackagePath>\</PackagePath>
+	</None>
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\Desktop\efi-logo.png">
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RestSharp" Version="112.1.0" />
+    <PackageReference Include="System.IO" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="LICENSE">
       <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-    <None Include="..\..\..\Desktop\LICENSE.md">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
+      <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
 
