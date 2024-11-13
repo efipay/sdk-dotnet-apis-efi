@@ -9,12 +9,13 @@ using RestSharp;
 using System.Text.RegularExpressions;
 using System.Reflection;
 using System.Collections.Generic;
+using Microsoft.VisualBasic;
 
 namespace Efipay
 {
     public class EfiPay : DynamicObject
     {
-        private const string version = "1.0.2";
+        private const string version = "2.0.0";
         private static string clientId;
         private static string clientSecret;
         private static JObject constants;
@@ -58,7 +59,8 @@ namespace Efipay
                 if (Certificate == null)
                 {
                     throw new EfiException(1, "certificate_not_found", "Para utilizar os endpoints do pix é necessário informar o caminho do certificado .p12");
-                } else if (!File.Exists(Certificate))
+                }
+                else if (!File.Exists(Certificate))
                 {
                     throw new EfiException(1, "certificate_not_found", "Caminho do certificado inválido.");
                 }
@@ -71,7 +73,8 @@ namespace Efipay
                 if (Certificate == null)
                 {
                     throw new EfiException(1, "certificate_not_found", "Para utilizar os endpoints do Open Finance é necessário informar o caminho do certificado .p12");
-                } else if (!File.Exists(Certificate))
+                }
+                else if (!File.Exists(Certificate))
                 {
                     throw new EfiException(1, "certificate_not_found", "Caminho do certificado inválido.");
                 }
@@ -84,7 +87,8 @@ namespace Efipay
                 if (Certificate == null)
                 {
                     throw new EfiException(1, "certificate_not_found", "Para utilizar os endpoints da API Pagamentos é necessário informar o caminho do certificado .p12");
-                } else if (!File.Exists(Certificate))
+                }
+                else if (!File.Exists(Certificate))
                 {
                     throw new EfiException(1, "certificate_not_found", "Caminho do certificado inválido.");
                 }
@@ -97,7 +101,8 @@ namespace Efipay
                 if (Certificate == null)
                 {
                     throw new EfiException(1, "certificate_not_found", "Para utilizar os endpoints da API Abertura de Contas é necessário informar o caminho do certificado .p12");
-                } else if (!File.Exists(Certificate))
+                }
+                else if (!File.Exists(Certificate))
                 {
                     throw new EfiException(1, "certificate_not_found", "Caminho do certificado inválido.");
                 }
@@ -181,10 +186,10 @@ namespace Efipay
                     request.AddJsonBody("{\r\n    \"grant_type\": \"client_credentials\"\r\n}");
                     restResponse = client.Execute(request);
                 }
-                    string response = restResponse.Content;
-                    JObject json = JObject.Parse(response);
-                    Token = json["access_token"].ToString();
-                }
+                string response = restResponse.Content;
+                JObject json = JObject.Parse(response);
+                Token = json["access_token"].ToString();
+            }
             catch (Exception)
             {
                 throw new EfiException(401, "authorization_error",
