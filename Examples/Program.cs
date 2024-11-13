@@ -14,6 +14,7 @@ namespace Examples
             // CreateOneStepBillet.Execute();
             // DefineBilletPayMethod.Execute();
             // DetailBillet.Execute();
+            // ListBillets.Execute();
             // SendBilletEmail.Execute();
             // SettleBillet.Execute();
             // UpdateBillet.Execute();
@@ -21,12 +22,15 @@ namespace Examples
 
             /* CHARGES - CARD */
             // CancelCard.Execute();
+            // CardPaymentRetry.Execute();
             // CreateCardHistory.Execute();
             // CreateChargeCard.Execute();
             // CreateOneStepCard.Execute();
             // DefineCardPayMethod.Execute();
             // DetailCard.Execute();
             // GetInstallments.Execute();
+            // ListCards.Execute();
+            // RefundCard.Execute();
             // UpdateCardMetadata.Execute();
 
             /* CHARGES - CARNETS */
@@ -35,12 +39,14 @@ namespace Examples
             // CreateCarnet.Execute();
             // CreateCarnetHistory.Execute();
             // DetailCarnet.Execute();
+            // ListCarnets.Execute();
             // SendCarnetEmail.Execute();
             // SendCarnetParcelEmail.Execute();
             // SettleCarnet.Execute();
             // SettleCarnetParcel.Execute();
             // UpdateCarnetMetadata.Execute();
             // UpdateCarnetParcel.Execute();
+            // UpdateCarnetParcels.Execute();
 
             /* CHARGES - MARKETPLACE */
             // CreateOneStepBilletMatketplace.Execute();
@@ -56,6 +62,7 @@ namespace Examples
             // CreateOneStepLink.Execute();
             // DefineLinkPayMethod.Execute();
             // DetailLink.Execute();
+            // ListLinks.Execute();
             // SendLinkEmail.Execute();
             // UpdateChargeLink.Execute();
             // UpdateLinkMetadata.Execute();
@@ -73,6 +80,7 @@ namespace Examples
             // DeletePlan.Execute();
             // DetailSubscription.Execute();
             // ListPlans.Execute();
+            // ListSubscription.Execute();
             // SendSubscriptionLinkEmail.Execute();
             // UpdatePlan.Execute();
             // UpdateSubscriptionMetadata.Execute();
@@ -87,6 +95,10 @@ namespace Examples
             // PixCreateEvp.Execute();
             // PixDeleteEvp.Execute();
 
+            /* EXCLUSIVES - MED */
+            // MedList.Execute();
+            // MedDefense.Execute();
+
             /* EXCLUSIVES - REPORT */
             // CreateReport.Execute();
             // DetailReport.Execute();
@@ -96,22 +108,43 @@ namespace Examples
             // OfConfigDetail.Execute();
             // OfConfigUpdate.Execute();
 
-            /* OPEN FINANCE - DEVOLUTION */
-            // OfDevolutionPix.Execute();
-
             /* OPEN FINANCE - PARTICIPANTS */
             // OfListParticipants.Execute();
 
-            /* OPEN FINANCE - PAYMENTS */
+            /* OPEN FINANCE - PAYMENTS - IMMEDIATE */
+            // OfDevolutionPix.Execute();
             // OfListPixPayment.Execute();
             // OfStartPixPayment.Execute();
 
+            /* OPEN FINANCE - PAYMENTS - RECURRENCY */
+            // OfCancelRecurrencyPix.Execute();
+            // OfDevolutionRecurrencyPix.Execute();
+            // OfListRecurrencyPixPayment.Execute();
+            // OfStartRecurrencyPixPayment.Execute();
 
-            /* PAYMENTS - BILLETS */
+            /* OPEN FINANCE - PAYMENTS - SCHEDULE */
+            // OfCancelSchedulePix.Execute();
+            // OfDevolutionSchedulePix.Execute();
+            // OfListSchedulePixPayment.Execute();
+            // OfStartSchedulePixPayment.Execute();
+
+
+            /* PAYMENTS - BILLETS - PAYMENT*/
             // PayDetailBarCode.Execute();
             // PayRequestBarCode.Execute();
             // PayDetailPayment.Execute();
             // PayListPayments.Execute();
+
+            /* PAYMENTS - BILLETS - WEBHOOKS*/
+            // PayConfigWebhook.Execute();
+            // PayDeleteWebhook.Execute();
+            // PayListWebhook.Execute();
+
+            /* PIX - BATCH - COBV */
+            // PixCreateDueChargeBatch.Execute();
+            // PixDetailDueChargeBatch.Execute();
+            // PixListDueChargeBatch.Execute();
+            // PixUpdateDueChargeBatch.Execute();
 
             
             /* PIX - COB */
@@ -134,14 +167,15 @@ namespace Examples
             // PixLocationList.Execute();
             // PixUnlinkTxidLocation.Execute();
 
-            /* PIX - PIX */
+            /* PIX - MANAGEMENT */
             // PixDetailDevolution.Execute();
             // PixDetailReceived.Execute();
             // PixDevolution.Execute();
             // PixReceivedList.Execute();
 
-
-            /* PIX - SEND */
+            /* PIX - PAYMENT */
+            // PixQrCodeDetail.Execute();
+            // PixQrCodePay.Execute();
             // PixSend.Execute();
             // PixSendDetail.Execute();
             // PixSendList.Execute();
