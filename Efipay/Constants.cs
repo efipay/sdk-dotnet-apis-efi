@@ -226,7 +226,33 @@ namespace Efipay
                         {
                             route = "/charge/:id/subscription/resend",
                             method = "POST"
+                        },
+                        ListCharges = new
+                        {
+                            route = "/charges",
+                            method = "GET"
+                        },
+                        RefundCard = new
+                        {
+                            route = "/charge/card/:id/refund",
+                            method = "POST"
+                        },
+                        CardPaymentRetry = new
+                        {
+                            route = "/charge/:id/retry",
+                            method = "POST"
+                        },
+                        UpdateCarnetParcels = new
+                        {
+                            route = "/carnet/:id/parcels",
+                            method = "PUT"
+                        },
+                        UpdateSubscription = new
+                        {
+                            route = "/subscription/:id",
+                            method = "PUT"
                         }
+
                     }
                 },
                 PIX = new
@@ -457,6 +483,46 @@ namespace Efipay
                         {
                             route = "/v2/gn/pix/enviados/id-envio/:idEnvio",
                             method = "GET"
+                        },
+                        MedList = new
+                        {
+                            route = "/v2/gn/infracoes",
+                            method = "GET"
+                        },
+                        MedDefense = new
+                        {
+                            route = "/v2/gn/infracoes/:idInfracao/defesa",
+                            method = "POST"
+                        },
+                        PixCreateDueChargeBatch = new
+                        {
+                            route = "/v2/lotecobv/:id",
+                            method = "PUT"
+                        },
+                        PixUpdateDueChargeBatch = new
+                        {
+                            route = "/v2/lotecobv/:id",
+                            method = "PATCH"
+                        },
+                        PixDetailDueChargeBatch = new
+                        {
+                            route = "/v2/lotecobv/:id",
+                            method = "GET"
+                        },
+                        PixListDueChargeBatch = new
+                        {
+                            route = "/v2/lotecobv",
+                            method = "GET"
+                        },
+                        PixQrCodePay = new
+                        {
+                            route = "/v2/gn/pix/:idEnvio/qrcode",
+                            method = "PUT"
+                        },
+                        PixQrCodeDetail = new
+                        {
+                            route = "/v2/gn/qrcodes/detalhar",
+                            method = "POST"
                         }
                     }
                 },
@@ -503,6 +569,46 @@ namespace Efipay
                         {
                             route = "/pagamentos/pix/:identificadorPagamento/devolver",
                             method = "POST"
+                        },
+                        OfCancelSchedulePix = new
+                        {
+                            route = "/pagamentos-agendados/pix/:identificadorPagamento/cancelar",
+                            method = "PATCH"
+                        },
+                        OfListSchedulePixPayment = new
+                        {
+                            route = "/pagamentos-agendados/pix",
+                            method = "GET"
+                        },
+                        OfStartSchedulePixPayment = new
+                        {
+                            route = "/pagamentos-agendados/pix",
+                            method = "POST"
+                        },
+                        OfDevolutionSchedulePix = new
+                        {
+                            route = "/pagamentos-agendados/pix/:identificadorPagamento/devolver",
+                            method = "POST"
+                        },
+                        OfStartRecurrencyPixPayment = new
+                        {
+                            route = "/pagamentos-recorrentes/pix",
+                            method = "POST"
+                        },
+                        OfListRecurrencyPixPayment = new
+                        {
+                            route = "/pagamentos-recorrentes/pix",
+                            method = "GET"
+                        },
+                        OfCancelRecurrencyPix = new
+                        {
+                            route = "/pagamentos-recorrentes/pix/:identificadorPagamento/cancelar",
+                            method = "PATCH"
+                        },
+                        OfDevolutionRecurrencyPix = new
+                        {
+                            route = "/pagamentos-recorrentes/pix/:identificadorPagamento/devolver",
+                            method = "POST"
                         }
                     }
                 },
@@ -539,6 +645,21 @@ namespace Efipay
                         {
                             route = "/resumo",
                             method = "GET"
+                        },
+                        PayConfigWebhook = new
+                        {
+                            route = "/webhook",
+                            method = "PUT"
+                        },
+                        PayDeleteWebhook = new
+                        {
+                            route = "/webhook",
+                            method = "DELETE"
+                        },
+                        PayListWebhook = new
+                        {
+                            route = "/webhook",
+                            method = "GET"
                         }
                     }
                 },
@@ -547,7 +668,7 @@ namespace Efipay
                     URL = new
                     {
                         production = "https://abrircontas.api.efipay.com.br/v1",
-                        sandbox = ""
+                        sandbox = "https://abrircontas-h.api.efipay.com.br/v1"
                     },
                     ENDPOINTS = new
                     {
@@ -558,37 +679,37 @@ namespace Efipay
                         },
                         CreateAccount = new
                         {
-                            route = "/cadastro/conta-simplificada",
+                            route = "/conta-simplificada",
                             method = "POST"
                         },
                         GetAccountCredentials = new
                         {
-                            route = "/cadastro/conta-simplificada/:idContaSimplificada/credenciais",
+                            route = "/conta-simplificada/:idContaSimplificada/credenciais",
                             method = "GET"
                         },
                         CreateAccountCertificate = new
                         {
-                            route = "/cadastro/conta-simplificada/:idContaSimplificada/certificado",
+                            route = "/conta-simplificada/:idContaSimplificada/certificado",
                             method = "POST"
                         },
                         AccountConfigWebhook = new
                         {
-                            route = "/cadastro/webhook",
+                            route = "/webhook",
                             method = "POST"
                         },
                         AccountListWebhook = new
                         {
-                            route = "/cadastro/webhooks",
+                            route = "/webhooks",
                             method = "GET"
                         },
                         AccountDetailWebhook = new
                         {
-                            route = "/cadastro/webhook/:identificadorWebhook",
+                            route = "/webhook/:identificadorWebhook",
                             method = "GET"
                         },
                         AccountDeleteWebhook = new
                         {
-                            route = "/cadastro/webhook/:identificadorWebhook",
+                            route = "/webhook/:identificadorWebhook",
                             method = "DELETE"
                         }
                     }
