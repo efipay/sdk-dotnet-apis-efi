@@ -9,18 +9,18 @@ provided by [Efí](https://sejaefi.com.br/).
 From Visual Studio package manager: 
 
 ```bash
-PM> Install-Package EfiPay -Version 1.0.3
+PM> Install-Package EfiPay -Version 2.0.0
 ```
 
 From .NET Cli:
 
 ```bash
-> dotnet add package EfiPay --version 1.0.3
+> dotnet add package EfiPay --version 2.0.0
 ```
 
 ### Tested with
 ```
-.NET 5.0
+.NET 8.0
 
 ```
 ## Basic usage
@@ -28,7 +28,7 @@ From .NET Cli:
 ```c#
 using Efipay;
 ...
-dynamic efi = new Efipay("client_id", "client_secret", true, "production.p12");
+dynamic efi = new EfiPay("client_id", "client_secret", true, "production.p12");
             
 var body = new 
 {
@@ -58,7 +58,7 @@ Just remember to set the correct credentials inside `Examples/credentials.json` 
 
 ## Additional documentation
 
-The full documentation with all available endpoints is in https://dev.gerencianet.com.br/docs.
+The full documentation with all available endpoints is in https://dev.efipay.com.br/.
 
 
 ## Contributing
