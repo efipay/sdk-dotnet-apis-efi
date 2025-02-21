@@ -15,7 +15,7 @@ namespace Efipay
 {
     public class EfiPay : DynamicObject
     {
-        private const string version = "2.0.0";
+        private const string version = "2.0.1";
         private static string clientId;
         private static string clientSecret;
         private static JObject constants;
@@ -101,6 +101,20 @@ namespace Efipay
                 if (Certificate == null)
                 {
                     throw new EfiException(1, "certificate_not_found", "Para utilizar os endpoints da API Abertura de Contas é necessário informar o caminho do certificado .p12");
+                }
+                else if (!File.Exists(Certificate))
+                {
+                    throw new EfiException(1, "certificate_not_found", "Caminho do certificado inválido.");
+                }
+            }
+            else if ((JObject)constants["APIS"]["STATEMENT"]["ENDPOINTS"][binder.Name] != null)
+            {
+                urls = (JObject)constants["APIS"]["STATEMENT"]["URL"];
+                baseURL = Sandbox ? (string)urls["sandbox"] : (string)urls["production"];
+                endpoint = (JObject)constants["APIS"]["STATEMENT"]["ENDPOINTS"][binder.Name];
+                if (Certificate == null)
+                {
+                    throw new EfiException(1, "certificate_not_found", "Para utilizar os endpoints da API de Extrato é necessário informar o caminho do certificado .p12");
                 }
                 else if (!File.Exists(Certificate))
                 {
