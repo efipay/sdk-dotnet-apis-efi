@@ -289,6 +289,11 @@ namespace Efipay
                             route = "/v2/webhook/:chave",
                             method = "DELETE"
                         },
+                        PixResendWebhook = new
+                        {
+                            route = "/v2/gn/webhook/reenviar",
+                            method = "POST"
+                        },
                         PixCreateCharge = new
                         {
                             route = "/v2/cob/:txid",
@@ -609,6 +614,11 @@ namespace Efipay
                         {
                             route = "/pagamentos-recorrentes/pix/:identificadorPagamento/devolver",
                             method = "POST"
+                        },
+                        OfReplaceRecurrencyPixParcel = new
+                        {
+                            route = "/pagamentos-recorrentes/pix/:identificadorPagamento/substituir/:endToEndId",
+                            method = "PATCH"
                         }
                     }
                 },
@@ -711,6 +721,52 @@ namespace Efipay
                         {
                             route = "/webhook/:identificadorWebhook",
                             method = "DELETE"
+                        }
+                    }
+                },
+                STATEMENT = new
+                {
+                    URL = new
+                    {
+                        production = "https://extratos.api.efipay.com.br/v1",
+                        sandbox = ""
+                    },
+                    ENDPOINTS = new
+                    {
+                        authorize = new
+                        {
+                            route = "/oauth/token",
+                            method = "POST"
+                        },
+                        ListStatementFiles = new
+                        {
+                            route = "/extrato-cnab/arquivos",
+                            method = "GET"
+                        },
+                        GetStatementFile = new
+                        {
+                            route = "/extrato-cnab/download/:nomeArquivo",
+                            method = "GET"
+                        },
+                        ListStatementRecurrences = new
+                        {
+                            route = "/extrato-cnab/agendamentos",
+                            method = "GET"
+                        },
+                        CreateStatementRecurrency = new
+                        {
+                            route = "/extrato-cnab/agendar",
+                            method = "POST"
+                        },
+                        UpdateStatementRecurrency = new
+                        {
+                            route = "/extrato-cnab/agendar/:identificador",
+                            method = "PATCH"
+                        },
+                        CreateSftpKey = new
+                        {
+                            route = "/extrato-cnab/gerar-chaves",
+                            method = "POST"
                         }
                     }
                 }
