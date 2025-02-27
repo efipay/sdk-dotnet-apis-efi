@@ -15,7 +15,7 @@ namespace Efipay
 {
     public class EfiPay : DynamicObject
     {
-        private const string version = "2.0.1";
+        private const string version = "2.0.2";
         private static string clientId;
         private static string clientSecret;
         private static JObject constants;
@@ -24,6 +24,7 @@ namespace Efipay
         private static bool sandbox;
         private static string certificate;
         private string baseURL;
+        private string partnerToken = null;
 
 
         public EfiPay(JObject options)
@@ -34,9 +35,13 @@ namespace Efipay
             constants = JObject.Parse(constant.getConstant());
             Sandbox = (bool)options["sandbox"];
             Certificate = (string)options["certificate"];
+            if (options["partner_token"] != null)
+            {
+                partnerToken = (string)options["partner_token"];
+            }
         }
 
-        public EfiPay(string clientId, string clientSecret, bool sandbox, string certificate)
+        public EfiPay(string clientId, string clientSecret, bool sandbox, string certificate, string partnertoken = null)
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
@@ -44,6 +49,10 @@ namespace Efipay
             constants = JObject.Parse(constant.getConstant());
             Sandbox = sandbox;
             Certificate = certificate;
+            if (partnertoken != null)
+            {
+                partnerToken = partnertoken;
+            }
         }
 
         public override bool TryInvokeMember(InvokeMemberBinder binder, object[] args, out object result)
@@ -176,6 +185,10 @@ namespace Efipay
             var request = new RestRequest();
             request.Method = Method.Post;
             request.AddHeader("Authorization", string.Format("Basic {0}", encodedAuth));
+            if(partnerToken != null)
+            {
+                request.AddHeader("partner-token", partnerToken);
+            }
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             RestResponse restResponse;
 
@@ -225,6 +238,10 @@ namespace Efipay
 
             request.AddHeader("Authorization", string.Format("Bearer {0}", Token));
             request.AddHeader("api-sdk", string.Format("efi-dotnet-core-{0}", version));
+            if (partnerToken != null)
+            {
+                request.AddHeader("partner-token", partnerToken);
+            }
 
             if (headersComplement != null)
             {
