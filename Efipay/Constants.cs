@@ -294,6 +294,36 @@ namespace Efipay
                             route = "/v2/gn/webhook/reenviar",
                             method = "POST"
                         },
+                        PixConfigWebhookRecurrenceAutomatic = new
+                        {
+                            route = "/v2/webhookrec",
+                            method = "PUT"
+                        },
+                        PixListWebhookRecurrenceAutomatic = new
+                        {
+                            route = "/v2/webhookrec",
+                            method = "GET"
+                        },
+                        PixDeleteWebhookRecurrenceAutomatic = new
+                        {
+                            route = "/v2/webhookrec",
+                            method = "DELETE"
+                        },
+                        PixConfigWebhookAutomaticCharge = new
+                        {
+                            route = "/v2/webhookcobr",
+                            method = "PUT"
+                        },
+                        PixListWebhookAutomaticCharge = new
+                        {
+                            route = "/v2/webhookcobr",
+                            method = "GET"
+                        },
+                        PixDeleteWebhookAutomaticCharge = new
+                        {
+                            route = "/v2/webhookcobr",
+                            method = "DELETE"
+                        },
                         PixCreateCharge = new
                         {
                             route = "/v2/cob/:txid",
@@ -399,6 +429,26 @@ namespace Efipay
                             route = "/v2/loc/:id/txid",
                             method = "DELETE"
                         },
+                        PixCreateLocationRecurrenceAutomatic = new
+                        {
+                            route = "/v2/locrec",
+                            method = "POST"
+                        },
+                        PixListLocationRecurrenceAutomatic = new
+                        {
+                            route = "/v2/locrec",
+                            method = "GET"
+                        },
+                        PixDetailLocationRecurrenceAutomatic = new
+                        {
+                            route = "/v2/locrec/:id",
+                            method = "GET"
+                        },
+                        PixUnlinkLocationRecurrenceAutomatic = new
+                        {
+                            route = "/v2/locrec/:id/idRec",
+                            method = "DELETE"
+                        },
                         PixCreateEvp = new
                         {
                             route = "/v2/gn/evp",
@@ -499,6 +549,11 @@ namespace Efipay
                             route = "/v2/gn/infracoes/:idInfracao/defesa",
                             method = "POST"
                         },
+                        PixGetReceipt = new
+                        {
+                            route = "/v2/gn/pix/comprovantes",
+                            method = "GET"
+                        },
                         PixCreateDueChargeBatch = new
                         {
                             route = "/v2/lotecobv/:id",
@@ -527,6 +582,71 @@ namespace Efipay
                         PixQrCodeDetail = new
                         {
                             route = "/v2/gn/qrcodes/detalhar",
+                            method = "POST"
+                        },
+                        PixDetailRecurrenceAutomatic = new
+                        {
+                            route = "/v2/rec/:idRec",
+                            method = "GET"
+                        },
+                        PixUpdateRecurrenceAutomatic = new
+                        {
+                            route = "/v2/rec/:idRec",
+                            method = "PATCH"
+                        },
+                        PixListRecurrenceAutomatic = new
+                        {
+                            route = "/v2/rec",
+                            method = "GET"
+                        },
+                        PixCreateRecurrenceAutomatic = new
+                        {
+                            route = "/v2/rec",
+                            method = "POST"
+                        },
+                        PixCreateRequestRecurrenceAutomatic = new
+                        {
+                            route = "/v2/solicrec",
+                            method = "POST"
+                        },
+                        PixDetailRequestRecurrenceAutomatic = new
+                        {
+                            route = "/v2/solicrec/:idSolicRec",
+                            method = "GET"
+                        },
+                        PixUpdateRequestRecurrenceAutomatic = new
+                        {
+                            route = "/v2/solicrec/:idSolicRec",
+                            method = "PATCH"
+                        },
+                        PixCreateAutomaticChargeTxid = new
+                        {
+                            route = "/v2/cobr/:txid",
+                            method = "PUT"
+                        },
+                        PixUpdateAutomaticCharge = new
+                        {
+                            route = "/v2/cobr/:txid",
+                            method = "PATCH"
+                        },
+                        PixDetailAutomaticCharge = new
+                        {
+                            route = "/v2/cobr/:txid",
+                            method = "GET"
+                        },
+                        PixCreateAutomaticCharge = new
+                        {
+                            route = "/v2/cobr",
+                            method = "POST"
+                        },
+                        PixListAutomaticCharge = new
+                        {
+                            route = "/v2/cobr",
+                            method = "GET"
+                        },
+                        PixRetryRequestAutomatic = new
+                        {
+                            route = "/v2/cobr/:txid/retentativa/:data",
                             method = "POST"
                         }
                     }
@@ -618,6 +738,61 @@ namespace Efipay
                         OfReplaceRecurrencyPixParcel = new
                         {
                             route = "/pagamentos-recorrentes/pix/:identificadorPagamento/substituir/:endToEndId",
+                            method = "PATCH"
+                        },
+                        OfCreateBiometricEnrollment = new
+                        {
+                            route = "/pagamentos-biometria/vinculos",
+                            method = "POST"
+                        },
+                        OfListBiometricEnrollment = new
+                        {
+                            route = "/pagamentos-biometria/vinculos",
+                            method = "GET"
+                        },
+                        OfRevokeBiometricEnrollment = new
+                        {
+                            route = "/pagamentos-biometria/vinculos",
+                            method = "PATCH"
+                        },
+                        OfCreateBiometricPixPayment = new
+                        {
+                            route = "/pagamentos-biometria/pix",
+                            method = "POST"
+                        },
+                        OfListBiometricPixPayment = new
+                        {
+                            route = "/pagamentos-biometria/pix",
+                            method = "GET"
+                        },
+                        OfCreateAutomaticEnrollment = new
+                        {
+                            route = "/pagamentos-automaticos/adesao",
+                            method = "POST"
+                        },
+                        OfListAutomaticEnrollment = new
+                        {
+                            route = "/pagamentos-automaticos/adesao",
+                            method = "GET"
+                        },
+                        OfUpdateAutomaticEnrollment = new
+                        {
+                            route = "/pagamentos-automaticos/adesao",
+                            method = "PATCH"
+                        },
+                        OfCreateAutomaticPixPayment = new
+                        {
+                            route = "/pagamentos-automaticos/pix",
+                            method = "POST"
+                        },
+                        OfListAutomaticPixPayment = new
+                        {
+                            route = "/pagamentos-automaticos/pix",
+                            method = "GET"
+                        },
+                        OfCancelAutomaticPixPayment = new
+                        {
+                            route = "/pagamentos-automaticos/pix",
                             method = "PATCH"
                         }
                     }
