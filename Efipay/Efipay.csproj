@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Title>EfiPay</Title>
-    <Version>2.0.2</Version>
+    <Version>2.0.3</Version>
     <Authors>Efí Bank</Authors>
     <Company>Efí Bank</Company>
     <Product>EfiPay</Product>
@@ -17,7 +17,6 @@
     <PackageIcon>efibank.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageId>EfiPay</PackageId>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
