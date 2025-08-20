@@ -369,6 +369,11 @@ namespace Efipay
                             route = "/v2/gn/pix/:idEnvio",
                             method = "PUT"
                         },
+                        PixSendSameOwnership = new
+                        {
+                            route = "/v2/gn/pix/:idEnvio/mesma-titularidade",
+                            method = "PUT"
+                        },
                         PixSendDetail = new
                         {
                             route = "/v2/gn/pix/enviados/:e2eid",
