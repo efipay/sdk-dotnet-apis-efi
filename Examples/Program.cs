@@ -89,7 +89,7 @@ namespace Examples
             // GetAccountBalance.Execute();
             // ListAccountConfig.Execute();
             // UpdateAccountConfig.Execute();
-            
+
             /* EXCLUSIVES - KEY */
             // PixListEvp.Execute();
             // PixCreateEvp.Execute();
@@ -103,7 +103,10 @@ namespace Examples
             // CreateReport.Execute();
             // DetailReport.Execute();
 
-            
+            /* EXCLUSIVES - PIX */
+            // PixGetReceipt.Execute();
+
+
             /* OPEN FINANCE - CONFIG */
             // OfConfigDetail.Execute();
             // OfConfigUpdate.Execute();
@@ -128,6 +131,21 @@ namespace Examples
             // OfListSchedulePixPayment.Execute();
             // OfStartSchedulePixPayment.Execute();
 
+            /* OPEN FINANCE - PAYMENTS - BIOMETRIC */
+            // OfCreateBiometricEnrollment.Execute();
+            // OfListBiometricEnrollment.Execute();
+            // OfRevokeBiometricEnrollment.Execute();
+            // OfCreateBiometricPixPayment.Execute();
+            // OfListBiometricPixPayment.Execute();
+
+            /* OPEN FINANCE - PAYMENTS - AUTOMATIC */
+            // OfCreateAutomaticEnrollment.Execute();
+            // OfListAutomaticEnrollment.Execute();
+            // OfUpdateAutomaticEnrollment.Execute();
+            // OfCreateAutomaticPixPayment.Execute();
+            // OfListAutomaticPixPayment.Execute();
+            // OfCancelAutomaticPixPayment.Execute();
+
 
             /* PAYMENTS - BILLETS - PAYMENT*/
             // PayDetailBarCode.Execute();
@@ -146,7 +164,7 @@ namespace Examples
             // PixListDueChargeBatch.Execute();
             // PixUpdateDueChargeBatch.Execute();
 
-            
+
             /* PIX - COB */
             // PixCreateCharge.Execute();
             // PixCreateImmediateCharge.Execute();
@@ -160,12 +178,39 @@ namespace Examples
             // PixDetailDueCharge.Execute();
             // PixListDueCharges.Execute();
 
+
+            /* PIX AUTOMATIC - REC */
+            // PixDetailRecurrenceAutomatic.Execute();
+            // PixUpdateRecurrenceAutomatic.Execute();
+            // PixListRecurrenceAutomatic.Execute();
+            // PixCreateRecurrenceAutomatic.Execute();
+
+            /* PIX AUTOMATIC - SOLICREC */
+            // PixCreateRequestRecurrenceAutomatic.Execute();
+            // PixDetailRequestRecurrenceAutomatic.Execute();
+            // PixUpdateRequestRecurrenceAutomatic.Execute();
+
+            /* PIX AUTOMATIC - COBR */
+            // PixCreateAutomaticChargeTxid.Execute();
+            // PixUpdateAutomaticCharge.Execute();
+            // PixDetailAutomaticCharge.Execute();
+            // PixCreateAutomaticCharge.Execute();
+            // PixListAutomaticCharge.Execute();
+            // PixRetryRequestAutomatic.Execute();
+
+
             /* PIX - LOCATION */
             // PixCreateLocation.Execute();
             // PixDetailLocation.Execute();
             // PixGenerateQRCode.Execute();
             // PixLocationList.Execute();
             // PixUnlinkTxidLocation.Execute();
+
+            /* PIX - LOCATION - REC */
+            // PixCreateLocationRecurrenceAutomatic.Execute();
+            // PixListLocationRecurrenceAutomatic.Execute();
+            // PixDetailLocationRecurrenceAutomatic.Execute();
+            // PixUnlinkLocationRecurrenceAutomatic.Execute();
 
             /* PIX - MANAGEMENT */
             // PixDetailDevolution.Execute();
@@ -177,9 +222,10 @@ namespace Examples
             // PixQrCodeDetail.Execute();
             // PixQrCodePay.Execute();
             // PixSend.Execute();
+            // PixSendSameOwnership.Execute();
             // PixSendDetail.Execute();
             // PixSendList.Execute();
-            
+
 
             /* PIX - SPLIT - COB */
             // PixSplitDetailCharge.Execute();
@@ -201,7 +247,16 @@ namespace Examples
             // PixDeleteWebhook.Execute();
             // PixDetailWebhook.Execute();
             // PixListWebhook.Execute();
-            
+            // PixResendWebhook.Execute();
+
+            /* PIX - WEBHOOKS - AUTOMATIC */
+            // PixConfigWebhookRecurrenceAutomatic.Execute();
+            // PixListWebhookRecurrenceAutomatic.Execute();
+            // PixDeleteWebhookRecurrenceAutomatic.Execute();
+            // PixConfigWebhookAutomaticCharge.Execute();
+            // PixListWebhookAutomaticCharge.Execute();
+            // PixDeleteWebhookAutomaticCharge.Execute();
+
 
         }
     }
