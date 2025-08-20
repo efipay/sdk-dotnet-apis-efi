@@ -9,13 +9,13 @@ provided by [Efí](https://sejaefi.com.br/).
 From Visual Studio package manager: 
 
 ```bash
-PM> Install-Package EfiPay -Version 2.0.3
+PM> Install-Package EfiPay -Version 2.0.4
 ```
 
 From .NET Cli:
 
 ```bash
-> dotnet add package EfiPay --version 2.0.3
+> dotnet add package EfiPay --version 2.0.4
 ```
 
 ### Tested with
